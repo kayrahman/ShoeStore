@@ -1,17 +1,24 @@
 package com.udacity.shoestore.fragments
 
+import android.graphics.drawable.GradientDrawable
+import android.icu.lang.UCharacter
 import android.os.Bundle
-import android.view.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.databinding.ItemShoeListBinding
+import com.udacity.shoestore.databinding.ItemShoeListBindingImpl
 import com.udacity.shoestore.viemodels.ShoeViewModel
-import kotlinx.android.synthetic.main.activity_main.*
+import timber.log.Timber
 
 
 class ShoeListFragment : Fragment() {
@@ -26,19 +33,39 @@ class ShoeListFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_shoe_list,container,false)
 
+
+
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
+        viewModel = ViewModelProvider(this.activity!!).get(ShoeViewModel::class.java)
 
-        binding.btnDetailScreen.setOnClickListener (
-            //go to detail screen
-            Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeDetailFragment,null)
-        )
+        viewModel.shoeList.observe(viewLifecycleOwner, Observer {shoe_list->
 
+            shoe_list.forEach {
+
+                //val viewBinding = layoutInflater.inflate(R.layout.item_shoe_list,binding.llShoeList,false)
+                val shoeBinding : ItemShoeListBinding = DataBindingUtil.inflate(layoutInflater,R.layout.item_shoe_list,binding.llShoeList,false)
+                shoeBinding.model = it
+                binding.llShoeList.addView(shoeBinding.root)
+                Timber.i("shoeName${it}")
+            }
+
+        })
+
+        binding.btnAdd.setOnClickListener {
+           /*
+            val view = layoutInflater.inflate(R.layout.item_shoe_list,binding.llShoeList,false)
+            binding.llShoeList.addView(view)
+*/
+
+            findNavController().navigate(R.id.action_shoeListFragment_to_shoeDetailFragment)
+
+        }
 
     }
 

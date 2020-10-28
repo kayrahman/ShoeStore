@@ -3,4 +3,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logout">Logout</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="type_shoe_name">Type shoe name</string>
+    <string name="label_shoe_size">Shoe size</string>
+    <string name="label_company_name">Comapny Name</string>
+    <string name="label_description">Description</string>
+    <string name="type_description">Type description</string>
+    <string name="type_comapny_name">Type comapny name</string>
+    <string name="type_shoe_size">Type shoe size</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>
