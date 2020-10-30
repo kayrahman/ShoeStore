@@ -101,6 +101,7 @@
             style="@style/btnStyle"
             android:layout_marginTop="@dimen/spaceLarge"
             android:text="@string/register"
+            android:onClick="@{()->shoeViewModel.onLoginBtnClick()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
