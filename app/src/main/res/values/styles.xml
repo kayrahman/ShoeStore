@@ -12,22 +12,58 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:colorControlNormal">@color/colorWhite</item>
+    </style>
+
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="shoeDetailLabelStyle">
-        <item name="android:layout_marginStart">16dp</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:layout_marginStart">@dimen/spaceLarge</item>
+        <item name="android:textSize">@dimen/textSizeMedium</item>
         <item name="android:layout_marginBottom">16dp</item>
     </style>
 
-    <style name="shoeDetailEtStyle">
-        <item name="android:layout_marginStart">8dp</item>
-    </style>
 
     <style name="shoeListItemStyle">
         <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="loginTextStyle">
+        <item name="android:layout_marginStart">@dimen/spaceLarge</item>
+        <item name="android:layout_marginBottom">@dimen/spaceLarge</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+    <style name="inputStyle">
+        <item name="android:layout_marginStart">@dimen/spaceLarge</item>
+        <item name="android:layout_marginEnd">@dimen/spaceLarge</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/bg_input</item>
+    </style>
+
+    <style name="btnStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:layout_marginStart">2dp</item>
+        <item name="android:layout_marginEnd">2dp</item>
+    </style>
+
+    <style name="onBoardingTitleStyle">
+        <item name="android:fontFamily">@font/candal</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/textSizeMedium</item>
     </style>
 
 </resources>

@@ -4,6 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ShoeListFragment">
 
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="shoeViewModel"
+            type="com.udacity.shoestore.viemodels.ShoeViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,6 +34,19 @@
         >
     </LinearLayout>
     </ScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new_shoe"
+            android:fontFamily="@font/roboto"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/textSizeMedium"
+            android:visibility="@{shoeViewModel.shoeList.size()>0? View.GONE:View.VISIBLE }"
+            />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_add"

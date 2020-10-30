@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.InstructionsOnboardingFragment">
 
+    <data>
+        <variable
+            name="shoeViewModel"
+            type="com.udacity.shoestore.viemodels.ShoeViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,20 +18,24 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment"
-            android:textAlignment="center" />
+            android:text="@string/rewards"
+            android:textAlignment="center"
+            style="@style/onBoardingTitleStyle"
+            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment"
+            android:text="@string/inst_sub_title"
             android:textAlignment="center" />
 
         <Button
             android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
+            android:text="@string/get_started"
+            style="@style/btnStyle"
+            android:padding="@dimen/spaceNormal"
+            android:layout_margin="@dimen/spaceLarge"
+            android:onClick="@{()-> shoeViewModel.navigateToShoeListScreen()}"
             />
 
 

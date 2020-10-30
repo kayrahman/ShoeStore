@@ -6,11 +6,23 @@
     <string name="shoe_name">Shoe Name</string>
     <string name="type_shoe_name">Type shoe name</string>
     <string name="label_shoe_size">Shoe size</string>
-    <string name="label_company_name">Comapny Name</string>
+    <string name="label_company_name">Company Name</string>
     <string name="label_description">Description</string>
     <string name="type_description">Type description</string>
-    <string name="type_comapny_name">Type comapny name</string>
+    <string name="type_comapny_name">Type company name</string>
     <string name="type_shoe_size">Type shoe size</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="type_username">Type your username</string>
+    <string name="type_password">Type your password</string>
+    <string name="get_started">Let\'s get started</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="add_new_shoe">Click + to add new shoe</string>
+    <string name="welcome_txt">Welcome!</string>
+    <string name="welcome_sub_title">Shop from thousands of Shoes. Freedom is yours.</string>
+    <string name="rewards">Rewards</string>
+    <string name="inst_sub_title">Keep shopping and keep getting rewards.</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
 </resources>

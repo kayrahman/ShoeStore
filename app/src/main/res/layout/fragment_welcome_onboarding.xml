@@ -3,6 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.WelcomeOnboardingFragment">
 
+
+    <data>
+        <variable
+            name="shoeViewModel"
+            type="com.udacity.shoestore.viemodels.ShoeViewModel" />
+    </data>
+
+    <!--
+    Using a Linear layout here since it's a simple layout containing 2 Text views and 1 Button only.
+    -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,22 +25,22 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome!!!"
-            android:textAlignment="center"
-            />
+            android:text="@string/welcome_txt"
+            style="@style/onBoardingTitleStyle" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Thanks for signing up to ShoeStore"
+            android:text="@string/welcome_sub_title"
             android:textAlignment="center"
             />
 
         <Button
             android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Next"
+            style="@style/btnStyle"
+            android:layout_marginTop="30dp"
+            android:onClick="@{()->shoeViewModel.navigateToInstructionScreen()}"
             />
 
 

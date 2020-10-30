@@ -11,18 +11,25 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/tv_shoe_name"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Shoe Name"
-        android:text="@{model.name}"
-        app:layout_constraintBottom_toTopOf="@+id/tv_shoe_company"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        style="@style/shoeListItemStyle" />
+        android:padding="@dimen/spaceNormal"
+        android:layout_marginStart="@dimen/spaceNormal"
+        android:layout_marginEnd="@dimen/spaceNormal"
+        android:layout_marginTop="@dimen/spaceSmall"
+        android:background="@drawable/bg_item_shoe"
+        >
+
+        <TextView
+            android:id="@+id/tv_shoe_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/holtwood_one_sc"
+            android:text="@{model.name}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_shoe_company"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:layout_editor_absoluteX="8dp"
+            tools:text="Shoe Name" />
 
     <TextView
         android:id="@+id/tv_shoe_company"

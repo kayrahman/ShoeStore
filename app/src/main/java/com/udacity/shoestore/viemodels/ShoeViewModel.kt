@@ -17,10 +17,19 @@ class ShoeViewModel : ViewModel() {
     val shoeDescription = MutableLiveData<String>()
     val shoeImages = MutableLiveData<MutableList<String>>()
 
-    private val formattedShoeSize = Transformations.map(shoeSize)
-     { size ->
-        size.toDoubleOrNull()
-    }
+    private val _authenticationState = MutableLiveData<Boolean>()
+    val authenticationState : LiveData<Boolean>
+    get() = _authenticationState
+
+    private val _isInstructionScreenShown = MutableLiveData<Boolean>()
+    val isInstructionScreenShown : LiveData<Boolean>
+    get() = _isInstructionScreenShown
+
+
+    private val _isWelcomeScreenShown = MutableLiveData<Boolean>()
+    val isWelcomeScreenShown : LiveData<Boolean>
+    get() = _isWelcomeScreenShown
+
 
 
     private val _isTaskDone = MutableLiveData<Boolean>()
@@ -30,6 +39,9 @@ class ShoeViewModel : ViewModel() {
     init {
         _isTaskDone.value = false
         _shoeList.value = mutableListOf()
+        _authenticationState.value = false
+        _isInstructionScreenShown.value = false
+        _isWelcomeScreenShown.value = false
     }
 
     fun newTask() {
@@ -41,11 +53,12 @@ class ShoeViewModel : ViewModel() {
         val images = mutableListOf<String>()
         images.add("image_one")
 
-        if (formattedShoeSize.value != null) {
+        val formattedShoeSize = shoeSize.value?.toDoubleOrNull()
+        if (formattedShoeSize != null) {
             val shoe =
                     Shoe(
                             shoeName.value.toString(),
-                            formattedShoeSize.value!!,
+                            formattedShoeSize,
                             shoeCompany.value.toString(),
                             shoeDescription.value.toString(),
                             images
@@ -55,8 +68,6 @@ class ShoeViewModel : ViewModel() {
             _isTaskDone.value = true
 
             Timber.i("shoelistSize:${shoeList.value}")
-        } else {
-            Timber.i("Shoe size null${formattedShoeSize.value}")
         }
     }
 
@@ -64,6 +75,23 @@ class ShoeViewModel : ViewModel() {
     fun onCancelBtnClick() {
         //go to shoe list fragment using nav direction
         _isTaskDone.value = true
+    }
+
+
+    fun onLoginBtnClick(){
+        _authenticationState.value = true
+    }
+
+
+    fun logout(){
+        _authenticationState.value = false
+    }
+
+    fun navigateToShoeListScreen(){
+        _isInstructionScreenShown.value = true
+    }
+    fun navigateToInstructionScreen(){
+        _isWelcomeScreenShown.value = true
     }
 
 }

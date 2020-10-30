@@ -33,8 +33,6 @@ class ShoeListFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_shoe_list,container,false)
 
-
-
         return binding.root
     }
 
@@ -42,13 +40,19 @@ class ShoeListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this.activity!!).get(ShoeViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+        binding.shoeViewModel = viewModel
+        binding.lifecycleOwner = this
+
+        viewModel.authenticationState.observe(viewLifecycleOwner, Observer {
+            if(!it){
+                findNavController().navigate(R.id.action_shoeListFragment_to_loginFragment)
+            }
+        })
+
 
         viewModel.shoeList.observe(viewLifecycleOwner, Observer {shoe_list->
-
             shoe_list.forEach {
-
-                //val viewBinding = layoutInflater.inflate(R.layout.item_shoe_list,binding.llShoeList,false)
                 val shoeBinding : ItemShoeListBinding = DataBindingUtil.inflate(layoutInflater,R.layout.item_shoe_list,binding.llShoeList,false)
                 shoeBinding.model = it
                 binding.llShoeList.addView(shoeBinding.root)
@@ -58,21 +62,11 @@ class ShoeListFragment : Fragment() {
         })
 
         binding.btnAdd.setOnClickListener {
-           /*
-            val view = layoutInflater.inflate(R.layout.item_shoe_list,binding.llShoeList,false)
-            binding.llShoeList.addView(view)
-*/
-
-            findNavController().navigate(R.id.action_shoeListFragment_to_shoeDetailFragment)
+           findNavController().navigate(R.id.action_shoeListFragment_to_shoeDetailFragment)
 
         }
 
     }
-
-
-
-
-
 
 
 }

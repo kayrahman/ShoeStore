@@ -4,32 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.LoginFragment">
 
+
+    <data>
+        <variable
+            name="shoeViewModel"
+            type="com.udacity.shoestore.viemodels.ShoeViewModel" />
+    </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_login"
+
+        <TextView
+            android:id="@+id/hc_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/holtwood_one_sc"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/textSizeLarge"
+            android:layout_marginBottom="@dimen/spaceLarge"
+            app:layout_constraintBottom_toTopOf="@+id/tv_label_username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_label_username"
+            style="@style/loginTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            app:layout_constraintEnd_toStartOf="@+id/barrier"
+            app:layout_constraintBottom_toTopOf="@+id/tv_label_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hc_label"
+            app:layout_constraintVertical_chainStyle="packed"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_label_password"
+            style="@style/loginTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            app:layout_constraintEnd_toStartOf="@+id/barrier"
+            app:layout_constraintBottom_toTopOf="@+id/btn_register"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_label_username" />
+
+        <EditText
+            android:id="@+id/et_username"
+            style="@style/inputStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:background="@drawable/bg_input"
+            android:hint="@string/type_username"
+            android:inputType="text"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_label_username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/inputStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input"
+            android:inputType="textPassword"
+            android:hint="@string/type_password"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_label_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/btnStyle"
+            android:layout_width="wrap_content"
+            android:onClick="@{()->shoeViewModel.onLoginBtnClick()}"
+            android:text="@string/login"
             app:layout_constraintBaseline_toBaselineOf="@+id/btn_register"
             app:layout_constraintEnd_toStartOf="@+id/btn_register"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btn_register"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Register"
+            style="@style/btnStyle"
+            android:layout_marginTop="@dimen/spaceLarge"
+            android:text="@string/register"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_login"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/tv_label_password" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="tv_label_password,tv_label_username" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

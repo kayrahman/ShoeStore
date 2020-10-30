@@ -31,7 +31,7 @@ class ShoeDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this.activity!!).get(ShoeViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
 
         binding.shoeViewModel = viewModel
         binding.lifecycleOwner = this
