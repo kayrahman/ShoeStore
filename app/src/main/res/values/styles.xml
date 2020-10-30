@@ -28,7 +28,7 @@
 
     <style name="shoeListItemStyle">
         <item name="android:textSize">16sp</item>
-        <item name="fontFamily">@font/roboto</item>
+        <item name="fontFamily">@font/roboto_regular</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
@@ -36,7 +36,7 @@
         <item name="android:layout_marginStart">@dimen/spaceLarge</item>
         <item name="android:layout_marginBottom">@dimen/spaceLarge</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
     <style name="inputStyle">
         <item name="android:layout_marginStart">@dimen/spaceLarge</item>
