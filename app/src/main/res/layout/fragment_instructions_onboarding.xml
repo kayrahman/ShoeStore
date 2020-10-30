@@ -9,6 +9,11 @@
             type="com.udacity.shoestore.viemodels.ShoeViewModel" />
     </data>
 
+    <!--
+    Using Linear Layout since this layout is a simple layout with only
+    2 textviews and 1 button.
+    -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
